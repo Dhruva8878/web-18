@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 id="display"></h1>
+    <button id="btn1">Increment</button>
+    <button id="btn2">Decrement</button>
+</body>
+</html>
+
+<script>
+      document.querySelector("#btn1").addEventListener("click",increfun);
+      document.querySelector("#btn2").addEventListener("click",decrefun);
+      var H1=document.querySelector("#display")
+      var count=H1.innerText=localStorage.getItem("counter")||0;
+
+      function increfun(){
+      var H1=document.querySelector("#display");
+      count++;
+      localStorage.setItem("counter",JSON.stringify(count));
+      H1.innerText=localStorage.getItem("counter")
+
+      }
+
+
+      function decrefun(){
+        var H1=document.querySelector("#display");
+        count--;
+       localStorage.setItem("counter",JSON.stringify(count));
+       H1.innerText=localStorage.getItem("counter")
+
+      }
+
+
+</script>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #heading{
+           background-color: blue;
+           display: flex;
+
+        }
+        #heading{
+            display: flex;
+            justify-content: space-around;
+            font-size: 30px;
+            margin-bottom: 30px;
+        }
+        a{
+            color:white;
+            font-style: none;
+            
+        } 
+       
+    </style>
+</head>
+<body>
+    <div id="heading">
+        <div><a href="backend.html">Backend</a></div>
+        <div><a href="frontend.html">frontend</a></div>
+    </div>
+    
+    <form id="Form">
+     <input  id="name" type="text" placeholder="Enter Name">
+     <input id="mimage"  type="text"  placeholder="Enter Image Url">
+     <input id="logo" type="text" placeholder="Company Logo">
+     <input id="position"  type="text" placeholder="Position">
+     <input type="submit" >
+    </form>
+</body>
+</html>
+<script>
+    document.querySelector("#Form").addEventListener("submit",myfun)
+
+
+    var inve_arr=JSON.parse(localStorage.getItem("investers"))||[]
+
+    function myfun(){
+    event.preventDefault();
+
+    var data={
+        inve_name:Form.name.value,
+        inve_img:Form.mimage.value,
+        com_logo:Form.logo.value,
+        position:Form.position.value,
+
+    };
+  
+    inve_arr.push(data);
+    console.log(inve_arr)
+   
+   localStorage.setItem("investers",JSON.stringify(inve_arr));
+
+    }
+    
+
+</script>

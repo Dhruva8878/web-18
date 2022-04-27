@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #heading{
+           background-color: blue;
+           display: flex;
+
+        }
+        #heading{
+            display: flex;
+            justify-content: space-around;
+            font-size: 30px;
+        }
+        a{
+            color:white;
+            font-style: none;
+            
+        }
+        #container{
+            display: grid;
+            grid-template-columns: repeat(4,1fr);
+            grid-template-rows: repeat(auto,auto);
+            gap:20px;
+        }
+        #main{
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div id="heading">
+        <div><a href="backend.html">Backend</a></div>
+        <div><a href="frontend.html">frontend</a></div>
+    </div>
+    <div id="container">
+
+    </div>
+    
+</body>
+</html>
+<script>
+    var investerArr=JSON.parse(localStorage.getItem("investers"))||[];
+
+    investerArr.forEach(function(el){
+
+    var Box= document.createElement("div")
+    Box.setAttribute("id","main");
+
+    var name=document.createElement("p");
+    name.innerText=el.inve_name;
+
+    var Mimg=document.createElement("img");
+    Mimg.setAttribute("src",el.inve_img)
+
+    var Co_Logo=document.createElement("img");
+    Co_Logo.setAttribute("src",el.com_logo)
+
+    var post=document.createElement("p");
+    post.innerText=el.position;
+
+  Box.append(name,Mimg,Co_Logo,post);
+   document.querySelector("#container").append(Box);
+
+  });
+      
+ 
+   
+
+    
+</script>
