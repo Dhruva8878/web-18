@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+       
+        #main{
+          display: grid;
+          grid-template-columns: repeat(1,1fr);
+          width:35%;
+          margin: auto;
+        }
+        #name{
+            padding: 10px ;
+            margin-bottom: 20px;
+            border-radius: 10px;
+            padding-right: 100px;
+        }
+        #email{
+            padding: 10px;
+            margin-bottom: 20px;
+            border-radius: 10px;
+            padding-right: 100px;
+
+        }
+        #password{
+            padding: 10px;
+            margin-bottom: 20px;
+            border-radius: 10px;
+            padding-right: 100px;
+
+        }
+        #main>h2{
+            text-align: center;
+        }
+        #Form{
+            margin: auto;
+        }
+        #Text{
+            text-align: center;
+        }
+        #sub{
+            padding: 10px 70px;
+            border-radius: 10px;
+           margin-left: 45px;
+        }
+        #LOG{
+            text-align: center;
+            margin-top: 20px;
+        }
+        #Masai{
+            text-align: center;
+        }
+
+    </style>
+</head>
+<body>
+    <div id="Masai">
+        <img id="Masaiimg" src="https://sso.masaischool.com/brand_dark.svg" alt="">
+    </div>
+    <div id="main">
+        <h2>Sing Up</h2>
+      <form id="Form">
+         Full Name<br>
+         <input id="name" type="text" placeholder="Enter Your Name"><br>
+          Email<br>
+         <input id="email" type="text" placeholder="Enter Email"><br>
+         Password<br>
+         <input id="password" type="password" placeholder="Enter Password"><br>
+
+        <p id="Text">you have to read the terms and conditon </p>
+        
+        <input id="sub" type="submit" value="SingUp" >
+        <div id="LOG" >Aleready have account?<a href="login.html">Login</a></div>
+      </form>
+    </div>
+    
+</body>
+</html>
+
+<script>
+    var form=document.querySelector("#Form").addEventListener("submit",logfun);
+     
+  
+    function logfun(){
+        event.preventDefault();
+    
+        var userdata={
+            name:Form.name.value,
+            email:Form.email.value,
+            password:Form.password.value
+
+        }
+         
+        localStorage.setItem("CustomerData",JSON.stringify(userdata));
+      alert("sign up succesfull")
+      window.location.href="login.html";
+    }
+
+</script>

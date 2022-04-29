@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #Masai{
+            text-align: center;
+        }
+        #main{
+            display: grid;
+          grid-template-columns: repeat(1,1fr);
+          width:35%;
+          margin: auto;
+        }
+        #main>h2{
+            text-align: center;
+        }
+        #password{
+            padding: 10px ;
+            margin-bottom: 20px;
+            border-radius: 10px;
+            padding-right: 100px;
+        }
+        #email{
+            padding: 10px;
+            margin-bottom: 20px;
+            border-radius: 10px;
+            padding-right: 100px;
+
+        }
+        #Form{
+            margin: auto;
+        }
+        #sub{
+            padding: 10px 70px;
+            border-radius: 10px;
+           margin-left: 50px;
+           margin-top: 20px;
+        }
+        #LOG{
+            text-align: center;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div id="Masai">
+        <img id="Masaiimg" src="https://sso.masaischool.com/brand_dark.svg" alt="">
+    </div>
+    <div id="main">
+        <h2>Sing Up</h2>
+      <form id="Form">
+         Email<br>
+         <input id="email" type="text" placeholder="Enter Email"><br>
+         Password<br>
+         <input id="password" type="password" placeholder="Enter Password"><br>
+        
+         <input type="submit" value="Login" id="sub">
+         <div id="LOG">Not An user<a href="Signup.html">Sing Up</a></div>
+</body>
+</html>
+<script>
+
+     var form=document.querySelector("#Form")
+     form.addEventListener("submit",logfun);
+     var SingUpdata=JSON.parse(localStorage.getItem("CustomerData"));
+     var loginData=JSON.parse(localStorage.getItem("loginData"));
+     
+     function logfun(){
+         event.preventDefault();
+
+
+       var data1={
+           email:form.email.value,
+           password:form.password.value
+       }
+      localStorage.setItem("loginData",JSON.stringify(data1));
+      
+      if(SingUpdata==null){
+          alert("user not found")
+      }
+
+      else if(SingUpdata.email==loginData.email&&SingUpdata.password==loginData.password){
+          alert("Login Successful");
+      }
+      else{
+          alert("Wrong Information");
+      }  
+     }
+    
+
+
+    
+     
+   
+    
+      
+</script>
