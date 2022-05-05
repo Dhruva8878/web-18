@@ -77,17 +77,25 @@
            email:form.email.value,
            password:form.password.value
        }
-      localStorage.setItem("loginData",JSON.stringify(data1));
+     var num=localStorage.setItem("loginData",JSON.stringify(data1));
+      console.log(num);
       
       if(SingUpdata==null){
           alert("user not found")
+          var str=JSON.parse(localStorage.setItem("loginData"))
+          str.innerHTML="";
       }
 
       else if(SingUpdata.email==loginData.email&&SingUpdata.password==loginData.password){
           alert("Login Successful");
+          localStorage.setItem("loginData",JSON.stringify(data1));
+          
+          window.location.href="./navbar.html"
       }
       else{
           alert("Wrong Information");
+          var str=JSON.parse(localStorage.setItem("loginData",JSON.stringify(data1)))
+          str.innerHTML="";
       }  
      }
     
